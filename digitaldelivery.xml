@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://www.joomla.org/xml/dtd/1.5/component-install.dtd">
+<extension
+version="1.6"
+type="component"
+client="site"
+method="upgrade">
+    <name>Digital Delivery</name>
+    <author>Magnetic Merchandising Inc.</author>
+    <version>1.0.1</version>
+    <creationDate>May 2010</creationDate>
+    <description>This is a component to help manage Digital Deliver App</description>
+    <license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
+<!--    <downloadUrl>http://magneticmerchandising.com/cms153/jfacebook-downloads.html</downloadUrl>-->
+    <files folder="site">
+        <folder>views</folder><!--
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+        <folder>languages</folder>
+        <folder>models</folder>
+        <folder>views</folder>
+        <folder>helpers</folder>
+        <folder>elements</folder>-->
+        <filename>digitaldelivery.php</filename>
+        <filename>mappings.php</filename>
+    </files>
+
+   <administration>
+        <files folder="admin">
+            <folder>api</folder>
+            <!--<folder>controllers</folder>-->
+            <!--<folder>install</folder>
+            <folder>languages</folder>
+            <folder>images</folder>-->
+            <folder>models</folder>
+
+<!--            <folder>helpers</folder>-->
+            <folder>views</folder>
+<!--            <filename>extensions/index.html</filename>-->
+            <filename>digitaldelivery.php</filename>
+            <filename>dispatcher.php</filename>
+<!--            <filename>index.html</filename>-->
+         </files>
+<!--         <languages folder="admin/languages">
+             <language tag="en-GB">en-GB.com_jfacebook.ini</language>
+         </languages>-->
+         <menu
+            
+            link="option=com_digitaldelivery">My Digital Delivery</menu>
+<!--        <submenu>
+			 Note that all & must be escaped to &amp; for the file to be valid XML and be parsed by the installer
+			<menu controller="config">Configuration</menu>
+			 Instead of link you can specify individual link attributes
+			<menu img="icon" task="hello" controller="z" view="a" layout="b" sub="c">Hello Again!</menu>
+			<menu view="test" layout="foo">Testing Foo Layout</menu>
+	</submenu>-->
+
+    </administration>
+<!--    <installfile>install/install.php</installfile>-->
+<!--    J1.6 ++-->
+<!--    <scriptfile>install.php</scriptfile>-->
+<!--    <framework>
+		<folder src="/site/components/com_default">/components/com_default</folder>
+		<folder src="/site/modules/mod_default">/modules/mod_default</folder>
+		<folder>/administrator/components/com_default</folder>
+		<folder>/administrator/modules/mod_default</folder>
+		<folder>/libraries/koowa</folder>
+		<folder>/media/lib_koowa</folder>
+		<folder>/media/com_default</folder>
+		<folder>/plugins/koowa</folder>
+		<file>/plugins/koowa/default.php</file>
+		<file>/plugins/system/koowa.php</file>
+		<file>/plugins/system/koowa.xml</file>
+	</framework>-->
+<!--      <media folder="media/com_jfacebook" destination="com_jfacebook">
+		<folder>attachments</folder>
+		<folder>attachments_thumbs</folder>
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>jquery-lightbox-0.5</folder>
+		<folder>js</folder>
+		<folder>v2</folder>
+	</media>-->
+
+<!--
+    <languages folder="site/languages">
+        <language tag="en-GB">en-GB.com_jfacebook.ini</language>
+    </languages>-->
+<!--    <installfile>component.installer.php</installfile>-->
+</extension>
