@@ -23,14 +23,7 @@ class ComDigitalDeliveryModelOrders extends ComDigitalDeliveryModelDefault {
         parent::__construct($config);
         $this->_state->insert('buyer_email','email');
         
-        
     }
-    function _initialize(KConfig $config)
-    {
-        
-       
-     //   $config->append();
-        parent::_initialize($config);
-    }
+   
 }
 

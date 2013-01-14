@@ -18,5 +18,4 @@
  || ######################################################################## ||
  \*==========================================================================*/
 
-//KService::setAlias("com://site/digitaldelivery.dispatcher","com://admin/digitaldelivery.dispatcher");
 KService::setAlias("com://site/digitaldelivery.model.orders","com://admin/digitaldelivery.model.orders");

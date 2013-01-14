@@ -24,19 +24,18 @@ class ComDigitalDeliveryModelDefault extends KModelAbstract {
         parent::__construct($config);
     }
 
+    /**
+     * Override the KModelAbstract get list. 
+     * TODO: move the directdelivery api here and make a model instead 
+     * @return type
+     */
     function getList() {
 
-    
         if (!$this->_list) {
 
-           
-            $api = KService::get("com://admin/digitaldelivery.libs.digitaldelivery", array('request'=>$this->_state->toArray()));
-
+            $api = KService::get("com://admin/digitaldelivery.libs.digitaldelivery", array('request' => $this->_state->toArray()));
             $service = $this->getIdentifier()->name;
-            $method = null;
-
-            $this->_list = $api->read($service, $method);
-
+            $this->_list = $api->read($service);
         }
 
         return parent::getList();
@@ -49,7 +48,5 @@ class ComDigitalDeliveryModelDefault extends KModelAbstract {
 
         return $this->_total;
     }
-    
-    
 
 }

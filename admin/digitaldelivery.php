@@ -22,8 +22,7 @@ if(!defined('KOOWA')) {
     return;
 }
 
-//if (KRequest::get('get.view', 'string') == '') KRequest::set('get.view', 'users');
-KLoader::loadIdentifier('com://admin/digitaldelivery.load');
 
+KLoader::loadIdentifier('com://admin/digitaldelivery.load');
 
 echo KService::get('com://admin/digitaldelivery.dispatcher')->dispatch();

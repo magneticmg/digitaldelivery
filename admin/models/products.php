@@ -18,6 +18,8 @@
  || ######################################################################## ||
  \*==========================================================================*/
 class ComDigitalDeliveryModelProducts extends ComDigitalDeliveryModelDefault {
-    //put your code here
+    
+    
+    // TODO: include state for /products/search? queries against the api. 
 }
 ?>

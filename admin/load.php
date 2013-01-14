@@ -19,14 +19,9 @@
  \*==========================================================================*/
 KLoader::loadIdentifier('com://admin/digitaldelivery.define');
 
-require_once DDAPIPATH .'base'.DS . 'object.php';
 
-require_once DDAPIPATH . 'digitaldelivery.php';
-//require_once DDAPIPATH .'base'.DS . 'row.php';
-//require_once DDAPIPATH .'base'.DS . 'rowset.php';
-
-//$apiIdentifier = KService::getIdentifier('com://admin/digitaldelivery.api.digitaldelivery');
-//gp($apiIdentifier, __FILE__);
+KLoader::loadIdentifier('com://admin/digitaldelivery.libs.base.object');
+KLoader::loadIdentifier('com://admin/digitaldelivery.libs.digitaldelivery');
 
 KLoader::loadIdentifier('com://admin/digitaldelivery.model.default');
 KLoader::loadIdentifier('com://site/digitaldelivery.mappings');

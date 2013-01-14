@@ -18,6 +18,7 @@
  || ######################################################################## ||
  \*==========================================================================*/
 
+//TODO: move styling to an asset /media/com_digitaldelivery/css/style.css and load 
 ?>
 <style type="text/css">
     .order-download, .order-info, .order-id { float: left; padding-right: 15px;}

@@ -20,19 +20,18 @@
   
 class ComDigitalDeliveryViewHtml extends ComDefaultViewHtml{
 
-    protected function _initialize(KConfig $config)
-    {
-        $config->append(array(
-            'views' => array(
-                'dashboard' => JText::_('Dashboard'),
-                'users' => JText::_('Users'),
-                'orders' => JText::_('Orders')
-            )
-        ));
-
-        parent::_initialize($config);
-    }
+//    protected function _initialize(KConfig $config)
+//    {
+//        $config->append(array(
+//            'views' => array(
+//                'dashboard' => JText::_('Dashboard'),
+//                'users' => JText::_('Users'),
+//                'orders' => JText::_('Orders')
+//            )
+//        ));
+//
+//        parent::_initialize($config);
+//    }
 
     
 }
-?>

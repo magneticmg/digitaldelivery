@@ -19,14 +19,15 @@
  \*==========================================================================*/
 class ComDigitalDeliveryControllerBehaviorExecutable extends KControllerBehaviorExecutable {
     
+    /**
+     * Probably don't need this. 
+     * @return boolean
+     */
     function canBrowse(){
         
         
        if(!JFactory::getUser()->email){
-//           $url = KRequest::url();
-//           
-//           $this->setRedirect("index.php?option=com_users&view=login&return=" .  base64_encode($url), JText::_("LOGIN"));
-//           $this->redirect();
+
            return false;
        }
        return true;

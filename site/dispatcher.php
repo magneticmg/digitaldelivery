@@ -27,16 +27,4 @@ class ComDigitalDeliveryDispatcher extends ComDefaultDispatcher {
         parent::_initialize($config);
     }
 
-    /**
-     * In the front end a user should not be able to see orders unless they are logged in.
-     * 
-     * @param KCommandContext $context
-     * @return type
-     */
-    function _actionDispatch(KCommandContext $context) {
-
-        
-        return parent::_actionDispatch($context);
-    }
-
 }

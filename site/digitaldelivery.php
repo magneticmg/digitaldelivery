@@ -22,7 +22,6 @@ if(!defined('KOOWA')) {
     return;
 }
 KLoader::loadIdentifier('com://admin/digitaldelivery.load');
-//if (KRequest::get('get.view', 'string') == '') KRequest::set('get.view', 'users');
 
 KLoader::loadIdentifier('com://site/digitaldelivery.views.html');
 

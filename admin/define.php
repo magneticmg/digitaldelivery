@@ -19,5 +19,5 @@
  \*==========================================================================*/
 define("DDAPIKEY", '57f23561e2c35da');
 define("DDAPISECRET", '8eb1286eba78f0f79f19');
-define("DDAPIPATH", JPATH_COMPONENT_ADMINISTRATOR . DS . 'libs' .DS);
+
 
