@@ -1,7 +1,7 @@
 digitaldelivery
 ===============
 
-Nooku Based Component for Digital Deliver App API. (Not even close to complete)
+Nooku Framework (12.1) Based Component for Digital Deliver App API. (Not even close to complete)
 
 ### 20130114 First commit
 
