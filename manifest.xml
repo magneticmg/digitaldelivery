@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE install SYSTEM "http://www.joomla.org/xml/dtd/1.5/component-install.dtd">
-<install
-version="1.5"
+<extension
+version="1.6"
 type="component"
-
+client="site"
 method="upgrade">
     <name>Digital Delivery</name>
     <author>Magnetic Merchandising Inc.</author>
@@ -72,14 +72,14 @@ method="upgrade">
 		<file>/plugins/system/koowa.php</file>
 		<file>/plugins/system/koowa.xml</file>
 	</framework>-->
-     <media folder="media" destination="com_digitaldelivery">
+<!--     <media folder="media" destination="com_digitaldelivery">
 		<folder>css</folder>
 		<folder>images</folder>
-      </media>
+      </media>-->
 
 <!--
     <languages folder="site/languages">
         <language tag="en-GB">en-GB.com_jfacebook.ini</language>
     </languages>-->
 <!--    <installfile>component.installer.php</installfile>-->
-</install>
+</extension>

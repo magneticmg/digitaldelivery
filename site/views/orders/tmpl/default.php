@@ -20,12 +20,7 @@
 
 //TODO: move styling to an asset /media/com_digitaldelivery/css/style.css and load 
 ?>
-<style type="text/css">
-    .order-download, .order-info, .order-id { float: left; padding-right: 15px;}
-    .order-info { width: 450px}
-    .order { padding-top: 25px;}
-    .product_name { font-weight: bold;}
-</style>
+<style src="media://com_digitaldelivery/css/digitaldelivery.css" />
 <div><h2 class="title"><?= @text("DD_ORDERS") ?></h2></div>
 <div id="orders">
    <? foreach($orders as $order) :?>

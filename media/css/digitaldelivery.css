@@ -1,0 +1,14 @@
+/* 
+    Document   : digitaldelivery
+    Created on : Jan 14, 2013, 7:18:15 PM
+    Author     : magneticmg
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.order-download, .order-info, .order-id { float: left; padding-right: 15px;}
+.order-info { width: 450px}
+.order { padding-top: 25px;}
+.product_name { font-weight: bold;}
+a.button { border: 1px solid #ff0000; border-radius: 10px; background-color: #990000; color: #ffffff; font-weight: bold; padding: 8px; margin-top: 10px;}
+a.button:hover { background-color: #990000; text-decoration: none;}
