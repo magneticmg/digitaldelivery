@@ -11,4 +11,4 @@
 .order { padding-top: 25px;}
 .product_name { font-weight: bold;}
 a.button { border: 1px solid #ff0000; border-radius: 10px; background-color: #990000; color: #ffffff; font-weight: bold; padding: 8px; margin-top: 10px;}
-a.button:hover { background-color: #990000; text-decoration: none;}
+a.button:hover { background-color: #ff0000; text-decoration: none; opacity: 50%}
