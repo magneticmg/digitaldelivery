@@ -22,7 +22,7 @@
 <div id="products">
 <? foreach($products as $product) :?>
     
-<? $product = $product->product; // do this somewhere else?>
+<? //$product = $product->product; // do this somewhere else?>
 
     <div id="product-<?= $product->id ?>">
         <div class="product-name"><?= $product->name ?></div>
