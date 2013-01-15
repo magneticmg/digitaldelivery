@@ -66,10 +66,8 @@ class ComDigitalDeliveryLibsDigitaldelivery extends DObject { // DObject
         $query = isset($params[2]) ? $params[2] : array();
 
         $url = $this->buildUrl($service, $method);
-
-
         $response = $this->makeRequest($url, $this->request->toArray());
-
+       
         if ($this->_format == 'xml') {
             
         } else if ($this->_format == 'json') {
