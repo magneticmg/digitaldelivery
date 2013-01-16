@@ -77,7 +77,8 @@ class ComDigitalDeliveryLibsDigitaldelivery extends DObject { // DObject
 
         $result = $this->process($result, $service);
         
-        $return = KService::get("com://admin/digitaldelivery.libs.data.rowset");
+        
+        $return = $this->getService("com://admin/digitaldelivery.libs.data.rowset");
         $return->setData($result);
         return $return;
     }
@@ -98,9 +99,9 @@ class ComDigitalDeliveryLibsDigitaldelivery extends DObject { // DObject
         $format = $this->getFormat();
 
         if ($method) {
+            // "products/search
             $service = "$service/$method";
         }
-
         if ($format) {
 
             $service = $service . $format;
