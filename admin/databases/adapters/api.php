@@ -32,6 +32,7 @@ class ComDigitaldeliveryDatabaseAdapterApi extends KDatabaseAdapterAbstract {
 
 
         /**
+         *  Psuedo steps: remove later.
          *  $query as a object
          *  $query->url 
          *  $query->path / service
@@ -55,8 +56,10 @@ class ComDigitaldeliveryDatabaseAdapterApi extends KDatabaseAdapterAbstract {
          *   execute should build the curl request
          *   
          */
-        //$service = $this->getTable()->getName();
-        // recently moved from default model. Makes more sence here. 
+       /*$
+        *
+        *  recently moved from default model. Makes more sence here. 
+        */
         $this->_buildBaseUrl($query->url);
 
         $url = $query->url->__toString();
@@ -84,7 +87,7 @@ class ComDigitaldeliveryDatabaseAdapterApi extends KDatabaseAdapterAbstract {
         $rowset->addData($result);
 
         return $rowset;
-// orders, packages, products, discount_codes, 'Licenses'=>/products/:product_id/licenses
+
     }
 
     function getConnection() {
@@ -97,7 +100,7 @@ class ComDigitaldeliveryDatabaseAdapterApi extends KDatabaseAdapterAbstract {
     }
 
     /**
-     * Build the base of the query 
+     * Build the base of the query. Moved form default model. 
      */
     function _buildBaseUrl(KHttpUrl $query) {
 
