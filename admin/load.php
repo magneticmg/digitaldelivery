@@ -17,9 +17,8 @@
  || # -------------------------------------------------------------------- # ||
  || ######################################################################## ||
  \*==========================================================================*/
-KLoader::loadIdentifier('com://admin/digitaldelivery.define');
 
-
+KLoader::loadIdentifier('com://admin/digitaldelivery.database.connection');
 KLoader::loadIdentifier('com://admin/digitaldelivery.libs.base.object');
 KLoader::loadIdentifier('com://admin/digitaldelivery.libs.digitaldelivery');
 

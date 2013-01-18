@@ -3,7 +3,7 @@
 /* ==========================================================================*\
   || ######################################################################## ||
   || # MMInc PHP                                                            # ||
-  || # Project: NewStoreDigitalDelivery                                             # ||
+  || # Project: DigitalDeliveryBack                                             # ||
   || #  $Id:  $                                                             # ||
   || # $Date:  $                                                            # ||
   || # $Author:  $                                                          # ||
@@ -18,45 +18,17 @@
   || ######################################################################## ||
   \*========================================================================== */
 
-class ComDigitalDeliveryModelOrders extends ComDigitalDeliveryModelDefault {
+class ComDigitaldeliveryDatabaseRowsetDefault extends KDatabaseRowsetAbstract {
 
-    function __construct(KConfig $config = null) {
-        parent::__construct($config);
+    function setData($data, $modified = true) {
 
-        $this->_state->insert('buyer_email', 'email')
-                ->insert('valid_until', 'date')
-                ->insert('state', 'word');
+        return parent::setData($data, true);
     }
 
-    /**
-     * TODO: Decide when to search 
-     * 
-     * @param KHttpUrl $url
-     */
-    function _buildRequestPath(KHttpUrl &$url) {
-
-        parent::_buildRequestPath($url);
-    }
-
-    /**
-     * 
-     * @param KHttpUrl $url
-     */
-    function _buildRequestQuery(KHttpUrl &$url) {
-
-        $state = $this->_state;
-        $params = array();
+    function _initialize(KConfig $config) {
         
-        parent::_buildRequestQuery($url);
         
-        if ($state->state) {
-            $params['state'] = $state->state;
-        }
-        
-        $query = array_merge($params, $url->getQuery(true));
-        
-        $url->setQuery($query);
-        
+        parent::_initialize($config);
     }
 
 }

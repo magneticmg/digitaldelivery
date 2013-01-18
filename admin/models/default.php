@@ -20,10 +20,7 @@
 
 class ComDigitalDeliveryModelDefault extends KModelAbstract {
 
-    function __construct(KConfig $config = null) {
-        parent::__construct($config);
-    }
-
+    
     /**
      * Override the KModelAbstract get list. 
      * TODO: move the directdelivery api here and make a model instead 
@@ -33,9 +30,23 @@ class ComDigitalDeliveryModelDefault extends KModelAbstract {
 
         if (!$this->_list) {
 
-            $api = KService::get("com://admin/digitaldelivery.libs.digitaldelivery", array('request' => $this->_state->toArray()));
-            $service = $this->getIdentifier()->name;
-            $this->_list = $api->read($service);
+            
+            $url = new KHttpUrl;
+            //$this->_buildRequestBase($url);
+            
+            $this->_buildRequestPath($url);
+            $this->_buildRequestQuery($url);
+            
+            $query = new KObject;
+            $query->method = KHttpRequest::GET;
+            $query->url = $url;
+            $query->service = $this->getIdentifier()->name;
+          
+            $database = $this->getService('com://admin/digitaldelivery.database.adapter.api');
+            
+            $this->_list = $database->select($query, KDatabase::FETCH_ROWSET);
+            
+
         }
 
         return parent::getList();
@@ -48,5 +59,29 @@ class ComDigitalDeliveryModelDefault extends KModelAbstract {
 
         return $this->_total;
     }
+    
+    function _buildRequestBase(KHttpUrl &$url){
+        
+            $url->host = $this->host;//"api.digitaldelivery.com";
+            $url->user = $this->user;
+            $url->pass = $this->password;
+            $url->scheme = "http";
+            $url->format = $this->request_format;
+            
+        
+    }
+    
+    function _buildRequestQuery(KHttpUrl &$url){
+        
+                              
+    }
+    function _buildRequestPath(KHttpUrl &$url){
+        
+        $service = $this->getIdentifier()->name;
+        $url->path = "/$service";
+        
+    }
+    
+    
 
 }

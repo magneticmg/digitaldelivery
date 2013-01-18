@@ -3,7 +3,7 @@
 /*==========================================================================*\
  || ######################################################################## ||
  || # MMInc PHP                                                            # ||
- || # Project: NewStoreDigitalDelivery                                             # ||
+ || # Project: DigitalDeliveryBack                                             # ||
  || #  $Id:  $                                                             # ||
  || # $Date:  $                                                            # ||
  || # $Author:  $                                                          # ||
@@ -17,7 +17,13 @@
  || # -------------------------------------------------------------------- # ||
  || ######################################################################## ||
  \*==========================================================================*/
-class ComDigitalDeliveryControllerBehaviorExecutable extends KControllerBehaviorExecutable {
-    
-  
+class ComDigitaldeliveryDatabaseRowDefault extends KDatabaseRowAbstract {
+   
+   
+    function setData($data, $modified = true){
+        
+        
+        return parent::setData($data, true);
+    }
+   
 }

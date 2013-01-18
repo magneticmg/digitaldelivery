@@ -3,7 +3,7 @@
 /* ==========================================================================*\
   || ######################################################################## ||
   || # MMInc PHP                                                            # ||
-  || # Project: NewStoreDigitalDelivery                                             # ||
+  || # Project: DigitalDeliveryBack                                             # ||
   || #  $Id:  $                                                             # ||
   || # $Date:  $                                                            # ||
   || # $Author:  $                                                          # ||
@@ -18,46 +18,36 @@
   || ######################################################################## ||
   \*========================================================================== */
 
-class ComDigitalDeliveryModelOrders extends ComDigitalDeliveryModelDefault {
-
-    function __construct(KConfig $config = null) {
-        parent::__construct($config);
-
-        $this->_state->insert('buyer_email', 'email')
-                ->insert('valid_until', 'date')
-                ->insert('state', 'word');
-    }
+class ComDigitaldeliveryDatabaseConnection {
 
     /**
-     * TODO: Decide when to search 
-     * 
-     * @param KHttpUrl $url
+     * Move this to a joomla param/field
+     * @var type 
      */
-    function _buildRequestPath(KHttpUrl &$url) {
+    static $connection = array(
+        'host' => '',
+        'user' => '',
+        'password' => '',
+        'request_format' => '',
+        'scheme' => ''
+    );
 
-        parent::_buildRequestPath($url);
+    function __get($key) {
+
+        if (isset(self::$connection[$key])) {
+            return self::$connection[$key];
+        }
     }
 
-    /**
-     * 
-     * @param KHttpUrl $url
-     */
-    function _buildRequestQuery(KHttpUrl &$url) {
+    function getConnectionInfo() {
 
-        $state = $this->_state;
-        $params = array();
-        
-        parent::_buildRequestQuery($url);
-        
-        if ($state->state) {
-            $params['state'] = $state->state;
+        $connectionInfo = new KObject();
+        foreach (self::$connection as $key => $value) {
+               
+            $connectionInfo->set($key, $value);
         }
         
-        $query = array_merge($params, $url->getQuery(true));
-        
-        $url->setQuery($query);
-        
+        return $connectionInfo;
     }
 
 }
-

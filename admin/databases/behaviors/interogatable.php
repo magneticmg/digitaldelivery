@@ -3,7 +3,7 @@
 /* ==========================================================================*\
   || ######################################################################## ||
   || # MMInc PHP                                                            # ||
-  || # Project: NewStoreDigitalDelivery                                             # ||
+  || # Project: DigitalDeliveryBack                                             # ||
   || #  $Id:  $                                                             # ||
   || # $Date:  $                                                            # ||
   || # $Author:  $                                                          # ||
@@ -18,44 +18,19 @@
   || ######################################################################## ||
   \*========================================================================== */
 
-class ComDigitalDeliveryModelOrders extends ComDigitalDeliveryModelDefault {
+class ComDigitalDeliveryDatabaseBehaviorInterogatable extends KDatabaseBehaviorAbstract {
 
-    function __construct(KConfig $config = null) {
-        parent::__construct($config);
-
-        $this->_state->insert('buyer_email', 'email')
-                ->insert('valid_until', 'date')
-                ->insert('state', 'word');
+    function _beforeUpdate(KCommandContext $context) {
+             
+        
+        return false;
     }
 
-    /**
-     * TODO: Decide when to search 
-     * 
-     * @param KHttpUrl $url
-     */
-    function _buildRequestPath(KHttpUrl &$url) {
-
-        parent::_buildRequestPath($url);
+    function _beforeSelect(KCommandContext $context) {
+        
     }
 
-    /**
-     * 
-     * @param KHttpUrl $url
-     */
-    function _buildRequestQuery(KHttpUrl &$url) {
-
-        $state = $this->_state;
-        $params = array();
-        
-        parent::_buildRequestQuery($url);
-        
-        if ($state->state) {
-            $params['state'] = $state->state;
-        }
-        
-        $query = array_merge($params, $url->getQuery(true));
-        
-        $url->setQuery($query);
+    function _beforeInsert(KCommandContext $context) {
         
     }
 

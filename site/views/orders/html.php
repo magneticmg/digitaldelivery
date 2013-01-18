@@ -32,9 +32,10 @@ class ComDigitalDeliveryViewOrdersHtml extends ComDigitalDeliveryViewHtml{
      */
     function display(){
         
+        
         $products = KService::get("com://admin/digitaldelivery.model.products");
-       
-        $this->assign('products', $products->getData());
+        
+        $this->assign('products', $products);
         
         return parent::display();
     }

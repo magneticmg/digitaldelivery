@@ -3,7 +3,7 @@
 /* ==========================================================================*\
   || ######################################################################## ||
   || # MMInc PHP                                                            # ||
-  || # Project: NewStoreDigitalDelivery                                             # ||
+  || # Project: JFacebook_-_Koowa                                             # ||
   || #  $Id:  $                                                             # ||
   || # $Date:  $                                                            # ||
   || # $Author:  $                                                          # ||
@@ -18,46 +18,52 @@
   || ######################################################################## ||
   \*========================================================================== */
 
-class ComDigitalDeliveryModelOrders extends ComDigitalDeliveryModelDefault {
+class ComDigitalDeliveryViewProductsHtml extends ComDigitalDeliveryViewHtml {
 
-    function __construct(KConfig $config = null) {
-        parent::__construct($config);
+    protected function _initialize(KConfig $config) {
 
-        $this->_state->insert('buyer_email', 'email')
-                ->insert('valid_until', 'date')
-                ->insert('state', 'word');
+        parent::_initialize($config);
     }
 
     /**
-     * TODO: Decide when to search 
-     * 
-     * @param KHttpUrl $url
+     * Adding products to the view so we have access to the names for the orders
+     * @return type
      */
-    function _buildRequestPath(KHttpUrl &$url) {
+    function _display() {
 
-        parent::_buildRequestPath($url);
+
+        // TODO: move to model and use state
+        $validorders = $this->_getValidProductIds($orders);
+        
+        
+        $this->assign('validorders', $validorders);
+
+
+
+        return parent::display();
     }
 
-    /**
-     * 
-     * @param KHttpUrl $url
-     */
-    function _buildRequestQuery(KHttpUrl &$url) {
-
-        $state = $this->_state;
-        $params = array();
+    function _getValidProductIds($orders) {
+        $product_ids = array();
         
-        parent::_buildRequestQuery($url);
-        
-        if ($state->state) {
-            $params['state'] = $state->state;
+        if ($email = JFactory::getUser()->email) {
+            
+            $orders = KService::get("com://admin/digitaldelivery.model.orders");
+            $orders->buyer_email($email);
+            $orders = $orders->getData();
+           
+           
+            $date = new JDate;
+            foreach ($orders as $i => $order) {
+                $orderDate = new JDate($order->valid_until);
+                
+                if ($date->toUnix() < $orderDate->toUnix()) {
+                    $product_ids[$i] = $order->product_id;
+                }
+            }
         }
-        
-        $query = array_merge($params, $url->getQuery(true));
-        
-        $url->setQuery($query);
-        
+      
+        return $product_ids;
     }
 
 }
-

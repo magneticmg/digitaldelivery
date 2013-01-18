@@ -77,7 +77,6 @@ class ComDigitalDeliveryLibsDigitaldelivery extends DObject { // DObject
 
         $result = $this->process($result, $service);
         
-        
         $return = $this->getService("com://admin/digitaldelivery.libs.data.rowset");
         $return->setData($result);
         return $return;
@@ -127,6 +126,7 @@ class ComDigitalDeliveryLibsDigitaldelivery extends DObject { // DObject
 
         $ch = curl_init($url);
 
+        gp($url, __METHOD__);
         //curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

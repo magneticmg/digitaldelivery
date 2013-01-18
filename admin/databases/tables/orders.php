@@ -3,7 +3,7 @@
 /*==========================================================================*\
  || ######################################################################## ||
  || # MMInc PHP                                                            # ||
- || # Project: NewStoreDigitalDelivery                                             # ||
+ || # Project: DigitalDeliveryBack                                             # ||
  || #  $Id:  $                                                             # ||
  || # $Date:  $                                                            # ||
  || # $Author:  $                                                          # ||
@@ -17,5 +17,16 @@
  || # -------------------------------------------------------------------- # ||
  || ######################################################################## ||
  \*==========================================================================*/
-
+class ComDigitalDeliveryDatabaseTableOrders extends KDatabaseTableAbstract {
+    
+    protected function _initialize(KConfig $config){
+        
+        $config->append(array(
+            'database'          => $this->getService('com://admin/digitaldelivery.database.adapter.api')
+                ));
+        
+        parent::_initialize($config);
+    }
+    
+}
 
