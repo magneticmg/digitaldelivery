@@ -31,9 +31,9 @@ class ComDigitalDeliveryViewProductsHtml extends ComDigitalDeliveryViewHtml {
      */
     function _display() {
 
-
+        
         // TODO: move to model and use state
-        $validorders = $this->_getValidProductIds($orders);
+        $validorders = $this->_getValidProductIds();
         
         
         $this->assign('validorders', $validorders);
@@ -43,15 +43,15 @@ class ComDigitalDeliveryViewProductsHtml extends ComDigitalDeliveryViewHtml {
         return parent::display();
     }
 
-    function _getValidProductIds($orders) {
+    function _getValidProductIds() {
         $product_ids = array();
         
         if ($email = JFactory::getUser()->email) {
             
-            $orders = KService::get("com://admin/digitaldelivery.model.orders");
+            $orders = $this->getService("com://admin/digitaldelivery.model.orders");
             $orders->buyer_email($email);
             $orders = $orders->getData();
-           
+          
            
             $date = new JDate;
             foreach ($orders as $i => $order) {

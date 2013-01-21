@@ -25,19 +25,5 @@ class ComDigitalDeliveryViewOrdersHtml extends ComDigitalDeliveryViewHtml{
         
         parent::_initialize($config);
     }
-
-    /**
-     * Adding products to the view so we have access to the names for the orders
-     * @return type
-     */
-    function display(){
-        
-        
-        $products = KService::get("com://admin/digitaldelivery.model.products");
-        
-        $this->assign('products', $products);
-        
-        return parent::display();
-    }
     
 }

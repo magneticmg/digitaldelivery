@@ -23,6 +23,6 @@ if(!defined('KOOWA')) {
 }
 KLoader::loadIdentifier('com://admin/digitaldelivery.load');
 
-KLoader::loadIdentifier('com://site/digitaldelivery.views.html');
+//KLoader::loadIdentifier('com://site/digitaldelivery.views.html');
 
 echo KService::get('com://site/digitaldelivery.dispatcher')->dispatch();

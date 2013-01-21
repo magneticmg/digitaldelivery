@@ -3,7 +3,7 @@
 /* ==========================================================================*\
   || ######################################################################## ||
   || # MMInc PHP                                                            # ||
-  || # Project: JFacebook_-_Koowa                                             # ||
+  || # Project: NewStoreDigitalDelivery                                             # ||
   || #  $Id:  $                                                             # ||
   || # $Date:  $                                                            # ||
   || # $Author:  $                                                          # ||
@@ -18,15 +18,24 @@
   || ######################################################################## ||
   \*========================================================================== */
 
-class ComDigitalDeliveryDispatcher extends ComDefaultDispatcher {
+class ComDigitalDeliveryModelProducts extends ComDigitalDeliveryModelDefault {
 
-    protected function _initialize(KConfig $config) {
-        $config->append(array(
-            'controller' => 'orders'
-        ));
-        parent::_initialize($config);
+    function __construct(KConfig $config) {
+        parent::__construct($config);
+        $this->getState()->insert('buyer_email', 'email');
+        
     }
-    
-    
+    function getList() {
+
+        if (!$this->_list && $this->_state->buyer_email) {
+
+            $this->_list = $this-> // join orders model on product_id 
+                    _processJoin("com://admin/digitaldelivery.model.orders", 'product_id', 'id');
+        } else {
+            $this->_list = parent::getList();
+        }
+        return $this->_list;
+    }
 
 }
+

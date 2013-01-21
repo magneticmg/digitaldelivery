@@ -19,7 +19,6 @@
  \*==========================================================================*/
 class ComDigitalDeliveryModelProducts extends ComDigitalDeliveryModelDefault {
     
-    
     // TODO: include state for /products/search? queries against the api. 
 }
 

@@ -18,12 +18,17 @@
  || ######################################################################## ||
  \*==========================================================================*/
 //TODO: Use default_products.php for alternative layout support
-
-//gp($orders, __FILE__.__LINE__);
+$date = new JDate;
+if(JVERSION < 1.6){
+    $today = $date->toMySQL();
+} else {
+    $today = $date->toSQL();   
+}
 
 ?>
 <style src="media://com_digitaldelivery/css/digitaldelivery.css" />
-<div><h2 class="title"><?= @text("DD_PRODUCTS") ?></h2></div>
+<div>  
+    <h2 class="title"><?= @text("DD_PRODUCTS") ?></h2></div>
 <div id="ddproducts">
 <? foreach($products as $product) :?>
     
@@ -36,11 +41,13 @@
         <div class="product-price"><?= "$product->currency_code $product->price" ?></div>
 </div>
         <div class="button buy">
-            <? // if(in_array($product->id, $validorders)) : ?>
-                <a class="btn-primary button" href="<?= $product->instant_buy_url ?>"><?= @text("BUYNOW") ?></a>
-            <?/* else: ?>
+            <?  if($product->product_id && $product->download_url && ($product->valid_until > $today)) : ?>
+                <a class="btn-primary button" href="<?= $product->download_url ?>">
+                <?= @text("DOWNLOAD") ?></a> 
+                <div class="smaller italic" style="margin-top: 10px;"><?= @text('DD_HAVEALREADYPURCHASED')?></div>
+            <? else: ?>
                <a class="btn-primary" href="<?= $product->instant_buy_url ?>"><?= @text("BUYNOW") ?></a>
-            <? endif; */?>
+            <? endif; ?>
             
         </div>
     </div>

@@ -60,7 +60,7 @@ class ComDigitaldeliveryDatabaseAdapterApi extends KDatabaseAdapterAbstract {
         *
         *  recently moved from default model. Makes more sence here. 
         */
-        $this->_buildBaseUrl($query->url);
+        $this->_buildBaseRequest($query->url);
 
         $url = $query->url->__toString();
         $ch = curl_init($url);
@@ -80,7 +80,11 @@ class ComDigitaldeliveryDatabaseAdapterApi extends KDatabaseAdapterAbstract {
 
             $result = json_decode($result);
         }
-        //TODO: Handle xml format as well. 
+        //TODO: Handle xml format as well.
+        
+        /**
+         * implement a behavior specific to the api i.e. after.select ??
+         */
         $result = $this->process($result, $query->service);
 
         $rowset = $this->getService("com://admin/digitaldelivery.database.rowset.default", array('table' => false));
@@ -95,6 +99,10 @@ class ComDigitaldeliveryDatabaseAdapterApi extends KDatabaseAdapterAbstract {
 
         if (!isset($connection)) {
             $connection = ComDigitaldeliveryDatabaseConnection::getConnectionInfo();
+            
+            if(!$connection->host){
+                throw new KExceptionError("No connection set in ".__FILE__);
+            }
         }
         return $connection;
     }
@@ -102,7 +110,7 @@ class ComDigitaldeliveryDatabaseAdapterApi extends KDatabaseAdapterAbstract {
     /**
      * Build the base of the query. Moved form default model. 
      */
-    function _buildBaseUrl(KHttpUrl $query) {
+    function _buildBaseRequest(KHttpUrl $query) {
 
         $connection = $this->getConnection();
         
@@ -121,8 +129,18 @@ class ComDigitaldeliveryDatabaseAdapterApi extends KDatabaseAdapterAbstract {
      * @return type
      */
     function process($data, $service) {
+        
+        if(empty($data)){
+            return array();
+        }
         $response = array();
         $service = KInflector::singularize($service);
+        
+        
+       // gp($data->getData(), __METHOD__,1);
+        
+       // if(empty($data->getData())) return $response;
+        
         foreach ($data as $i => $datum) {
             $response[$datum->$service->id] = $datum->$service;
         }

@@ -10,10 +10,12 @@ h2.title { margin-bottom: 15px;}
 .order-info { width: 450px}
 .order { padding-top: 25px;}
 .product_name { font-weight: bold;}
-a.btn-primary, a.button { border: 1px solid #ff0000; border-radius: 10px; background-color: #990000; color: #ffffff; font-weight: bold; padding: 8px; margin-top: 10px;}
+a.btn-primary, a.button { border: 1px solid #ff0000; border-radius: 10px; background-color: #990000; color: #ffffff; font-weight: bold; padding: 8px; margin-top: 10px; margin-bottom: 10px}
 a.btn-primary:hover, a.button:hover { background-color: #ff0000; text-decoration: none; opacity: 50%}
 div.buy { float: left}
 div.product-info { width: 400px; float: left; margin-right: 25px;}
 div.product-info div.product-name {font-weight: bold; font-size: larger; }
 div.product-block { margin: 20px;}
 .product-price { font-size: 12pt; font-style:  italic; font-weight:  bold; color: #990000; }
+.smaller { font-size: 75%}
+.italic { font-style: italic}

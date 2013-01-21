@@ -3,7 +3,7 @@
 /* ==========================================================================*\
   || ######################################################################## ||
   || # MMInc PHP                                                            # ||
-  || # Project: JFacebook_-_Koowa                                             # ||
+  || # Project: NewStoreDigitalDelivery                                             # ||
   || #  $Id:  $                                                             # ||
   || # $Date:  $                                                            # ||
   || # $Author:  $                                                          # ||
@@ -18,15 +18,23 @@
   || ######################################################################## ||
   \*========================================================================== */
 
-class ComDigitalDeliveryDispatcher extends ComDefaultDispatcher {
+class ComDigitalDeliveryControllerProduct extends ComDefaultControllerDefault {
 
-    protected function _initialize(KConfig $config) {
-        $config->append(array(
-            'controller' => 'orders'
-        ));
-        parent::_initialize($config);
+    /**
+     * In the front end a user will get a download link if they are logged in and purchased already. 
+     * 
+     * @param KCommandContext $context
+     * @return type
+     */
+    function _actionGet(KCommandContext $context) {
+
+
+        if ($email = JFactory::getUser()->email) {
+            // set the buyer email state
+            $this->buyer_email = $email;
+        }
+
+        return parent::_actionGet($context);
     }
-    
-    
 
 }
